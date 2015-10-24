@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller contentMode="scaleAspectFit" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="PushForParseWatchApp" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="mQG-aT-RYS">
+                            <items>
+                                <tableRow identifier="AppCell" id="X1M-oh-2Fy" customClass="AppCell" customModule="PushForParseWatchApp_Extension">
+                                    <group key="rootItem" width="1" height="30" alignment="left" id="Mhz-TE-Las">
+                                        <items>
+                                            <label width="1" height="1" alignment="left" text="Name" numberOfLines="0" id="Jjq-5v-7Y5"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="name" destination="Jjq-5v-7Y5" id="8pL-Hf-Nqv"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <label alignment="center" verticalAlignment="center" hidden="YES" text="Add an app from your iPhone" numberOfLines="0" id="cZI-xQ-jKc"/>
+                        <imageView alignment="center" verticalAlignment="center" image="wave_" contentMode="scaleAspectFit" animationDuration="8" id="ufg-rK-w4H"/>
+                    </items>
+                    <connections>
+                        <outlet property="noAppsLabel" destination="cZI-xQ-jKc" id="Mjh-dQ-1bN"/>
+                        <outlet property="table" destination="mQG-aT-RYS" id="eZx-Fc-DUv"/>
+                        <outlet property="wave" destination="ufg-rK-w4H" id="99W-0S-ZNN"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="322" y="385"/>
+        </scene>
+        <!--Push-->
+        <scene sceneID="Ueh-9C-odW">
+            <objects>
+                <controller identifier="SendNotificationController" title="Push" contentMode="scaleAspectFit" id="Ndc-zr-1K7" customClass="SendNotificationController" customModule="PushForParseWatchApp_Extension">
+                    <items>
+                        <label alignment="left" text="Message" id="Ind-QU-5yw">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <label alignment="left" text="Press firmly to set a message" numberOfLines="0" id="4UR-3r-qca"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Push" id="NVp-qJ-O4U">
+                            <connections>
+                                <action selector="pushNotification" destination="Ndc-zr-1K7" id="xUa-Ij-9Fn"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <menu key="menu" id="Ylj-5L-SX8">
+                        <items>
+                            <menuItem title="Set Message" icon="add" id="Quf-sL-DkZ">
+                                <connections>
+                                    <action selector="message" destination="Ndc-zr-1K7" id="opQ-4u-Jxy"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="messageText" destination="4UR-3r-qca" id="3tu-l7-VgU"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="511" y="385"/>
+        </scene>
+    </scenes>
+</document>

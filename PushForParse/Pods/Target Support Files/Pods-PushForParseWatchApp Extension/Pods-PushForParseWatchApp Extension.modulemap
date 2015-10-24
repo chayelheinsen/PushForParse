@@ -1,0 +1,6 @@
+framework module Pods_PushForParseWatchApp_Extension {
+  umbrella header "Pods-PushForParseWatchApp Extension-umbrella.h"
+
+  export *
+  module * { export * }
+}

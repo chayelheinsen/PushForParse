@@ -1,0 +1,13 @@
+PODS:
+  - Alamofire (3.0.0)
+  - Mercury (1.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.0)
+  - Mercury
+
+SPEC CHECKSUMS:
+  Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
+  Mercury: 6b808292b0ac1a780a65463135bf0e1f9df18415
+
+COCOAPODS: 0.39.0
