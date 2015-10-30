@@ -14,7 +14,6 @@ class InterfaceController: WKInterfaceController {
     
     @IBOutlet var noAppsLabel: WKInterfaceLabel!
     @IBOutlet var table: WKInterfaceTable!
-    @IBOutlet var wave: WKInterfaceImage!
     var apps: [App] = [App]()
 
     override func awakeWithContext(context: AnyObject?) {
@@ -64,17 +63,12 @@ class InterfaceController: WKInterfaceController {
                     
                     if let weakSelf = self {
                         weakSelf.reloadTable()
-                        weakSelf.wave.stopAnimating()
-                        weakSelf.wave.setHidden(true)
                     }
                 }
                 
                 }) { (error) -> Void in
                     print("Error: \(error)")
             }
-        } else {
-            wave.stopAnimating()
-            wave.setHidden(true)
         }
     }
 

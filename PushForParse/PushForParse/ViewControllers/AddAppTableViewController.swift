@@ -17,6 +17,8 @@ class AddAppTableViewController: UITableViewController, UITextFieldDelegate, SFS
     @IBOutlet var apiKey: UITextField!
     @IBOutlet var appID: UITextField!
     
+    var app: App?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,12 +31,20 @@ class AddAppTableViewController: UITableViewController, UITextFieldDelegate, SFS
         self.tableView.separatorStyle = .SingleLine;
         
         self.title = "New App";
+        
+        if app != nil {
+            applicationTitle.text = app?.name
+            apiKey.text = app?.apiKey
+            appID.text = app?.appId
+        }
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        applicationTitle.becomeFirstResponder()
+        if app == nil {
+            applicationTitle.becomeFirstResponder()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -103,6 +113,18 @@ class AddAppTableViewController: UITableViewController, UITextFieldDelegate, SFS
         UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
     }
     
+    // MARK: - 3D Touch Preview Items
+    
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        
+        let deleteAction = UIPreviewAction(title: "Delete", style: .Destructive) { (action, viewController) -> Void in
+            self.app?.delete()
+            NSNotificationCenter.defaultCenter().postNotificationName("RefreshApps", object: nil)
+        }
+        
+        return [deleteAction]
+    }
+    
     // MARK: - Helpers
     
     func saveApplicationInformation() {
@@ -121,40 +143,64 @@ class AddAppTableViewController: UITableViewController, UITextFieldDelegate, SFS
             return
         }
         
-        let checkApp = App.appWithName(applicationTitle.text!)
-        
-        if checkApp != nil {
-            print("App already exists")
+        if let app = app {
             
-            let mercury = Mercury.sharedInstance
-            
-            let notification = MercuryNotification()
-            notification.text = "App name already exists"
-            notification.color = UIColor.pomergranateColor()
-            notification.image = Ionicons.imageWithIcon(Ionicon.CloseRound, size: 20, color: UIColor.pomergranateColor())
-            
-            mercury.postNotification(notification)
-            
-            return
-        }
-        
-        let app: App = App(name: applicationTitle.text!, apiKey: apiKey.text!, appId: appID.text!)
-        app.save()
-        
-        if WCSession.defaultSession().watchAppInstalled {
-            let data: [String : AnyObject] = app.serializeToDictionary()
-            let appData: [String : AnyObject] = ["app" : data]
-            
-            WCSession.defaultSession().transferUserInfo(appData)
-            /*
-            do {
-                try WCSession.defaultSession().updateApplicationContext(appData)
-            } catch {
-                print("Cannot send data to watch: \(error)")
+            if let editApp = App.appWithName(app.name!) {
+                editApp.name = applicationTitle.text
+                editApp.apiKey = apiKey.text
+                editApp.appId = appID.text
+                editApp.save()
+                
+                if WCSession.defaultSession().watchAppInstalled {
+                    let data: [String : AnyObject] = app.serializeToDictionary()
+                    let appData: [String : AnyObject] = ["deleteApp" : editApp.name!, "app" : data]
+                    
+                    WCSession.defaultSession().transferUserInfo(appData)
+                }
+                
+                self.navigationController!.popViewControllerAnimated(true)
+            } else {
+                let mercury = Mercury.sharedInstance
+                
+                let notification = MercuryNotification()
+                notification.text = "Something is wrong here. Couldn't find the app you are trying to edit."
+                notification.color = UIColor.pomergranateColor()
+                notification.image = Ionicons.imageWithIcon(Ionicon.CloseRound, size: 20, color: UIColor.pomergranateColor())
+                
+                mercury.postNotification(notification)
+                
+                return
             }
-            */
+            
+        } else {
+            let checkApp = App.appWithName(applicationTitle.text!)
+            
+            if checkApp != nil {
+                print("App already exists")
+                
+                let mercury = Mercury.sharedInstance
+                
+                let notification = MercuryNotification()
+                notification.text = "App name already exists"
+                notification.color = UIColor.pomergranateColor()
+                notification.image = Ionicons.imageWithIcon(Ionicon.CloseRound, size: 20, color: UIColor.pomergranateColor())
+                
+                mercury.postNotification(notification)
+                
+                return
+            }
+            
+            let app: App = App(name: applicationTitle.text!, apiKey: apiKey.text!, appId: appID.text!)
+            app.save()
+            
+            if WCSession.defaultSession().watchAppInstalled {
+                let data: [String : AnyObject] = app.serializeToDictionary()
+                let appData: [String : AnyObject] = ["app" : data]
+                
+                WCSession.defaultSession().transferUserInfo(appData)
+            }
+            
+            self.navigationController!.popViewControllerAnimated(true)
         }
-        
-        self.navigationController!.popViewControllerAnimated(true)
     }
 }

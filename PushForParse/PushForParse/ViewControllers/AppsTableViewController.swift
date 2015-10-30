@@ -9,7 +9,7 @@
 import UIKit
 import WatchConnectivity
 
-class AppsTableViewController: UITableViewController {
+class AppsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
 
     var apps: Array<App> = Array<App>()
     
@@ -24,13 +24,18 @@ class AppsTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = edit
         
         navigationItem.title = "Apps"
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addApplicationSegue", name: "segueNewApp", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshData", name: "RefreshApps", object: nil)
+        
+        if UIApplication.sharedApplication().keyWindow?.traitCollection.forceTouchCapability == .Available {
+            registerForPreviewingWithDelegate(self, sourceView: view)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        apps = App.allApps()
-        tableView.reloadData()
+        refreshData()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -50,21 +55,36 @@ class AppsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return apps.count
+        return apps.count > 0 ? apps.count : 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let identifier: String = "AppCell"
         
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier)
-        
-        if cell == nil {
-            cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
+        if apps.count > 0 {
+            let identifier: String = "AppCell"
+            
+            var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier)
+            
+            if cell == nil {
+                cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
+            }
+            
+            cell?.textLabel?.text = apps[indexPath.row].name
+            
+            return cell!
+        } else {
+            let identifier: String = "EmptyCell"
+            
+            var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier)
+            
+            if cell == nil {
+                cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
+            }
+            
+            cell?.textLabel?.text = "Add an app to get started."
+            
+            return cell!
         }
-        
-        cell?.textLabel?.text = apps[indexPath.row].name
-        
-        return cell!
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -97,21 +117,50 @@ class AppsTableViewController: UITableViewController {
         if let version = version {
             
             if let build = build {
-                return "Push For Parse : Version \(version) : Build \(build)"
+                return "Shove : Version \(version) : Build \(build)"
 
             }
         }
         
-        return "Push For Parse"
+        return "Shove"
         
     }
     
     // MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let sendNotification = SendNotificationTableViewController(style: .Grouped)
-        sendNotification.app = apps[tableView.indexPathForSelectedRow!.row]
-        self.navigationController?.pushViewController(sendNotification, animated: true)
+        
+        if apps.count > 0 {
+            let sendNotification = SendNotificationTableViewController(style: .Grouped)
+            sendNotification.app = apps[tableView.indexPathForSelectedRow!.row]
+            self.navigationController?.pushViewController(sendNotification, animated: true)
+        } else {
+            addApplicationSegue()
+        }
+    }
+    
+    // MARK: - UIViewControllerPreviewingDelegate
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        if apps.count > 0 {
+            let indexPath = tableView.indexPathForRowAtPoint(location)
+            
+            if let indexPath = indexPath {
+                let app = apps[indexPath.row]
+                let appInfo = storyboard!.instantiateViewControllerWithIdentifier("AddAppTableViewController") as! AddAppTableViewController
+                appInfo.app = app
+                appInfo.preferredContentSize = CGSize(width: 0.0, height: 300)
+                
+                return appInfo
+            }
+        }
+        
+        return nil
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        showViewController(viewControllerToCommit, sender: self)
     }
     
     // MARK: - Helpers
@@ -123,5 +172,9 @@ class AppsTableViewController: UITableViewController {
     func goToSettings() {
         UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
     }
-
+    
+    func refreshData() {
+        apps = App.allApps()
+        tableView.reloadData()
+    }
 }

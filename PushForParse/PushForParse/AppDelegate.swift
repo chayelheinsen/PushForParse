@@ -13,9 +13,12 @@ import WatchConnectivity
 class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     var window: UIWindow?
+    var shortcut: UIApplicationShortcutItem?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        var performShortcutDelegate = true
         
         if WCSession.isSupported() {
             let session = WCSession.defaultSession()
@@ -23,7 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             session.activateSession()
         }
         
-        return true
+        if let launchOptions = launchOptions {
+            
+            if let shortcutItem = launchOptions[UIApplicationLaunchOptionsShortcutItemKey] as? UIApplicationShortcutItem {
+                shortcut = shortcutItem
+                performShortcutDelegate = false
+            }
+        }
+        
+        return performShortcutDelegate
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -42,6 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        
+        if shortcut != nil {
+            handleShortcut(shortcut!, fromBackground: true)
+            shortcut = nil
+        }
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -76,6 +93,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
                 UIApplication.sharedApplication().endBackgroundTask(watchKitHandler!)
             })
         }
+    }
+    
+    // MARK: 3D Touch
+    
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        completionHandler(handleShortcut(shortcutItem, fromBackground: false))
+    }
+    
+    func handleShortcut(shortcutItem: UIApplicationShortcutItem, fromBackground: Bool) -> Bool {
+        var handled = false
+        
+        if shortcutItem.type == "com.chayelheinsen.shortcut.new-app" {
+            handled = true
+            NSTimer.scheduledTimerWithTimeInterval(fromBackground ? 1.0 : 0, target: self, selector: "segueNewApp", userInfo: nil, repeats: false)
+        }
+        
+        return handled
+    }
+    
+    func segueNewApp() {
+        NSNotificationCenter.defaultCenter().postNotificationName("segueNewApp", object: nil)
     }
     
 }

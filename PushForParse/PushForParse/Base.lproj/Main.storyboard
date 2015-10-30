@@ -88,7 +88,7 @@
         <!--Add App Table View Controller-->
         <scene sceneID="bov-cK-j3E">
             <objects>
-                <tableViewController id="8Zn-kJ-ooH" customClass="AddAppTableViewController" customModule="PushForParse" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AddAppTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Zn-kJ-ooH" customClass="AddAppTableViewController" customModule="PushForParse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="UGm-Lx-M8o">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

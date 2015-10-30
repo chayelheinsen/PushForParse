@@ -38,6 +38,11 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
 
     func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {
         
+        if let appName = userInfo["deleteApp"] as? String {
+            let deleteApp = App.appWithName(appName)
+            deleteApp?.delete()
+        }
+        
         if let appInfo = userInfo["app"] as? [String : AnyObject] {
             let app = App(name: appInfo["name"] as! String, apiKey: appInfo["apiKey"] as! String, appId: appInfo["appId"] as! String)
             
@@ -46,9 +51,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
             }
             
             app.save()
-        } else if let appName = userInfo["deleteApp"] as? String {
-            let deleteApp = App.appWithName(appName)
-            deleteApp?.delete()
         }
     }
     
