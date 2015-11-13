@@ -29,6 +29,7 @@ class InterfaceController: WKInterfaceController {
         apps = App.allApps()
         reloadTable()
         
+        /*
         if WCSession.defaultSession().reachable {
          
             WCSession.defaultSession().sendMessage(["AllApps" : 1], replyHandler: { [weak self] (userInfo) -> Void in
@@ -70,6 +71,7 @@ class InterfaceController: WKInterfaceController {
                     print("Error: \(error)")
             }
         }
+        */
     }
 
     override func didDeactivate() {

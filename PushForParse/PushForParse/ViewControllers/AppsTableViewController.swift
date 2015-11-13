@@ -8,10 +8,12 @@
 
 import UIKit
 import WatchConnectivity
+import DGElasticPullToRefresh
 
 class AppsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
 
     var apps: Array<App> = Array<App>()
+    var navBarHairline: UIImageView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +33,30 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
         if UIApplication.sharedApplication().keyWindow?.traitCollection.forceTouchCapability == .Available {
             registerForPreviewingWithDelegate(self, sourceView: view)
         }
+        
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.backgroundColor = UIColor.turquoiseColor()
+        
+        navBarHairline = findHairlineImageViewUnder(self.navigationController!.navigationBar)
+        self.navigationController?.navigationBar.translucent = false
+        
+        // Initialize tableView
+        let loadingView = DGElasticPullToRefreshLoadingViewCircle()
+        loadingView.tintColor = UIColor.whiteColor()
+        tableView.dg_addPullToRefreshWithActionHandler({ [weak self] () -> Void in
+            self?.refreshAccount({ () -> () in
+                self?.tableView.dg_stopLoading()
+            })
+        }, loadingView: loadingView)
+        tableView.dg_setPullToRefreshFillColor(UIColor.turquoiseColor())
+        tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         refreshData()
+        navBarHairline?.hidden = true
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -85,6 +106,10 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
             
             return cell!
         }
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -176,5 +201,53 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
     func refreshData() {
         apps = App.allApps()
         tableView.reloadData()
+    }
+    
+    func refreshAccount(completion: () -> ()) {
+        
+        if let account = ParseAccount.account() {
+            Parse.apps(account) { (apps) -> () in
+                
+                if let apps = apps {
+                    
+                    if WCSession.defaultSession().watchAppInstalled {
+                        var array = [[String : AnyObject]]()
+                        
+                        for app in apps {
+                            let data: [String : AnyObject] = app.serializeToDictionary()
+                            let appData: [String : AnyObject] = ["app" : data]
+                            array.append(appData)
+                        }
+                        
+                        do {
+                            try WCSession.defaultSession().updateApplicationContext(["context" : array])
+                        } catch {
+                            
+                        }
+                    }
+                }
+                
+                completion()
+            }
+        } else {
+            completion()
+        }
+    }
+    
+    func findHairlineImageViewUnder(underView: UIView) -> UIImageView? {
+    
+        if underView.isKindOfClass(UIImageView.self) && underView.bounds.size.height <= 1.0 {
+            return underView as? UIImageView
+        }
+        
+        for subview in underView.subviews {
+            let imageView = findHairlineImageViewUnder(subview)
+            
+            if imageView != nil {
+                return imageView
+            }
+        }
+        
+        return nil
     }
 }

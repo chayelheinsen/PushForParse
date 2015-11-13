@@ -5,7 +5,7 @@ target 'PushForParse' do
     platform :ios, '9.0'
 	pod 'Alamofire', '~> 3.0'
 	pod 'Mercury'
-    #pod 'DGElasticPullToRefresh'
+    pod 'DGElasticPullToRefresh'
 end
 
 target 'PushForParseWatchApp Extension' do

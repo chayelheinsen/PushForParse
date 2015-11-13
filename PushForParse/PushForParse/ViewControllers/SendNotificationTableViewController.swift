@@ -441,57 +441,11 @@ class SendNotificationTableViewController: UITableViewController, UITextFieldDel
             category = categoryText
         }
         
-        let headers = [
-            "X-Parse-Application-Id": app.appId!,
-            "X-Parse-REST-API-Key": app.apiKey!
-        ]
-        
-        let params: [String : AnyObject] = [
-            "channels" : channelsArray,
-            "data" : [
-                "alert" : message,
-                "badge" : badge,
-                "category" : category
-            ]
-        ] as [String : AnyObject]
-        
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        
-        Alamofire.request(.POST, "https://api.parse.com/1/push", headers: headers, parameters: params, encoding: .JSON)
-            .responseJSON { response in
-                //print(response.response) // URL response
-                //print(response.data)     // server data
-                //print(response.result)   // result of response serialization
-                
-                if response.result.isSuccess {
-                    // SUCCESS
-                    
-                    let mercury = Mercury.sharedInstance
-                    
-                    let notification = MercuryNotification()
-                    notification.text = "Sent Push Notification"
-                    notification.color = UIColor.emeraldColor()
-                    notification.image = Ionicons.imageWithIcon(Ionicon.CheckmarkRound, size: 20, color: UIColor.emeraldColor())
-                    
-                    mercury.postNotification(notification)
-                    
-                    self.navigationController?.popViewControllerAnimated(true)
-                    
-                } else {
-                    // FAILURE
-                    print("Some error occured.")
-                    
-                    let mercury = Mercury.sharedInstance
-                    
-                    let notification = MercuryNotification()
-                    notification.text = "Something went wrong"
-                    notification.color = UIColor.pomergranateColor()
-                    notification.image = Ionicons.imageWithIcon(Ionicon.CloseRound, size: 20, color: UIColor.pomergranateColor())
-                    
-                    mercury.postNotification(notification)
-                }
-                
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        Parse.pushWithApp(app, channels: channelsArray, alert: message, badge: badge, category: category) { (success) -> () in
+            
+            if success {
+                self.navigationController?.popViewControllerAnimated(true)
+            }
         }
         
     }

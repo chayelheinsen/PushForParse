@@ -6,7 +6,12 @@
         <attribute name="created" attributeType="Date" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="ParseAccount" representedClassName=".ParseAccount" syncable="YES">
+        <attribute name="password" attributeType="String" syncable="YES"/>
+        <attribute name="username" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="App" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="ParseAccount" positionX="-63" positionY="9" width="128" height="75"/>
     </elements>
 </model>

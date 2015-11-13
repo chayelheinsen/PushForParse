@@ -34,6 +34,25 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate, WCSessionDelegate {
     
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
         
+        if let apps = applicationContext["context"] as? [[String : AnyObject]] {
+            
+            if apps.count > 0 {
+                App.deleteAllApps()
+            }
+            
+            for app in apps {
+                
+                if let appInfo = app["app"] as? [String : AnyObject] {
+                    let app = App(name: appInfo["name"] as! String, apiKey: appInfo["apiKey"] as! String, appId: appInfo["appId"] as! String)
+                    
+                    if (appInfo["created"] as? NSDate != nil) {
+                        app.created = appInfo["created"] as? NSDate
+                    }
+                    
+                    app.save()
+                }
+            }
+        }
     }
 
     func session(session: WCSession, didReceiveUserInfo userInfo: [String : AnyObject]) {

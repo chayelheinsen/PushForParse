@@ -18,5 +18,5 @@ extension App {
     @NSManaged var apiKey: String?
     @NSManaged var appId: String?
     @NSManaged var created: NSDate?
-
+    
 }

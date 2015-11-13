@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PushForParse/Alamofire.framework"
+  install_framework "Pods-PushForParse/DGElasticPullToRefresh.framework"
   install_framework "Pods-PushForParse/Mercury.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PushForParse/Alamofire.framework"
+  install_framework "Pods-PushForParse/DGElasticPullToRefresh.framework"
   install_framework "Pods-PushForParse/Mercury.framework"
 fi

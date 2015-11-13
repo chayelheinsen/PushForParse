@@ -52,6 +52,26 @@ class App: NSManagedObject {
         return app
     }
     
+    static func deleteAllApps() {
+        let apps: Array<App> = App.allApps()
+        
+        for app in apps {
+            app.delete()
+        }
+    }
+    
+    static func appsFromDictionary(apps: [[String : AnyObject]]) -> [App] {
+        var array: [App] = [App]()
+        
+        for a in apps {
+            let app: App = App(name: a["appName"]! as! String, apiKey: a["restKey"]! as! String, appId: a["applicationId"]! as! String)
+            app.save()
+            array.append(app)
+        }
+        
+        return array
+    }
+    
     func save() {
         
         do {
@@ -79,5 +99,4 @@ class App: NSManagedObject {
             "created" : created!
         ]
     }
-    
 }

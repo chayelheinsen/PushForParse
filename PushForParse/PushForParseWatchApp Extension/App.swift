@@ -52,6 +52,14 @@ class App: NSManagedObject {
         return app
     }
     
+    static func deleteAllApps() {
+        let apps: Array<App> = App.allApps()
+        
+        for app in apps {
+            app.delete()
+        }
+    }
+    
     func save() {
         
         do {
