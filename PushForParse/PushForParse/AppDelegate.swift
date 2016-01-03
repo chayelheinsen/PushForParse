@@ -34,6 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
             }
         }
         
+        if let _ = ParseAccount.account() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("AppNavigationController") as! UINavigationController
+            self.window?.rootViewController = vc
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+            self.window?.rootViewController = vc
+        }
+        
         return performShortcutDelegate
     }
 
@@ -54,10 +64,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        
-        if shortcut != nil {
-            handleShortcut(shortcut!, fromBackground: true)
-            shortcut = nil
+        if NSUserDefaults.standardUserDefaults().boolForKey("reset_app") {
+            ParseAccount.deleteAllAccounts()
+            
+            NSNotificationCenter.defaultCenter().postNotificationName("AppReset", object: nil)
+            
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "reset_app")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        } else {
+            if shortcut != nil {
+                handleShortcut(shortcut!, fromBackground: true)
+                shortcut = nil
+            }
         }
     }
 

@@ -2,15 +2,18 @@ PODS:
   - Alamofire (3.0.0)
   - DGElasticPullToRefresh (1.0.3)
   - Mercury (1.1)
+  - TransitionTreasury (1.0.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - DGElasticPullToRefresh
   - Mercury
+  - TransitionTreasury
 
 SPEC CHECKSUMS:
   Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
   DGElasticPullToRefresh: 040f39ae69840b3261d163fe6735c5901bf851e9
   Mercury: 6b808292b0ac1a780a65463135bf0e1f9df18415
+  TransitionTreasury: 9426142ad73a05b9c3946a78657add0a7d8bdd79
 
 COCOAPODS: 0.39.0

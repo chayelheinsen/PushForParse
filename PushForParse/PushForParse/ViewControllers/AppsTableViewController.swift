@@ -9,11 +9,14 @@
 import UIKit
 import WatchConnectivity
 import DGElasticPullToRefresh
+import TransitionTreasury
 
-class AppsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
+class AppsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate, ModalViewControllerDelegate {
 
-    var apps: Array<App> = Array<App>()
-    var navBarHairline: UIImageView?
+    // MARK: - ModalViewControllerDelegate
+    var tr_transition: TRViewControllerTransitionDelegate?
+    
+    var apps: [App] = [App]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +32,13 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addApplicationSegue", name: "segueNewApp", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshData", name: "RefreshApps", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "resetApp", name: "AppReset", object: nil)
         
         if UIApplication.sharedApplication().keyWindow?.traitCollection.forceTouchCapability == .Available {
             registerForPreviewingWithDelegate(self, sourceView: view)
         }
         
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarPosition: .Any, barMetrics: .Default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.backgroundColor = UIColor.turquoiseColor()
-        
-        navBarHairline = findHairlineImageViewUnder(self.navigationController!.navigationBar)
+        removeNavigationBarHairline(self.navigationController!.navigationBar)
         self.navigationController?.navigationBar.translucent = false
         
         // Initialize tableView
@@ -51,12 +51,14 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
         }, loadingView: loadingView)
         tableView.dg_setPullToRefreshFillColor(UIColor.turquoiseColor())
         tableView.dg_setPullToRefreshBackgroundColor(tableView.backgroundColor!)
+        
+        let footer: UIView = UIView()
+        tableView.tableFooterView = footer
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         refreshData()
-        navBarHairline?.hidden = true
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -76,36 +78,21 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return apps.count > 0 ? apps.count : 1
+        return apps.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let identifier: String = "AppCell"
         
-        if apps.count > 0 {
-            let identifier: String = "AppCell"
-            
-            var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier)
-            
-            if cell == nil {
-                cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
-            }
-            
-            cell?.textLabel?.text = apps[indexPath.row].name
-            
-            return cell!
-        } else {
-            let identifier: String = "EmptyCell"
-            
-            var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier)
-            
-            if cell == nil {
-                cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
-            }
-            
-            cell?.textLabel?.text = "Add an app to get started."
-            
-            return cell!
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(identifier)
+        
+        if cell == nil {
+            cell = UITableViewCell(style: .Default, reuseIdentifier: identifier)
         }
+        
+        cell?.textLabel?.text = apps[indexPath.row].name
+        
+        return cell!
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -135,32 +122,15 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
         }
     }
     
-    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString")
-        let build = NSBundle.mainBundle().objectForInfoDictionaryKey(kCFBundleVersionKey as String)
-        
-        if let version = version {
-            
-            if let build = build {
-                return "Shove : Version \(version) : Build \(build)"
-
-            }
-        }
-        
-        return "Shove"
-        
-    }
-    
     // MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if apps.count > 0 {
             let sendNotification = SendNotificationTableViewController(style: .Grouped)
             sendNotification.app = apps[tableView.indexPathForSelectedRow!.row]
             self.navigationController?.pushViewController(sendNotification, animated: true)
-        } else {
-            addApplicationSegue()
         }
     }
     
@@ -234,20 +204,9 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
         }
     }
     
-    func findHairlineImageViewUnder(underView: UIView) -> UIImageView? {
-    
-        if underView.isKindOfClass(UIImageView.self) && underView.bounds.size.height <= 1.0 {
-            return underView as? UIImageView
-        }
-        
-        for subview in underView.subviews {
-            let imageView = findHairlineImageViewUnder(subview)
-            
-            if imageView != nil {
-                return imageView
-            }
-        }
-        
-        return nil
+    func resetApp() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+        tr_presentViewController(vc, method: .Twitter)
     }
 }

@@ -87,9 +87,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PushForParse/Alamofire.framework"
   install_framework "Pods-PushForParse/DGElasticPullToRefresh.framework"
   install_framework "Pods-PushForParse/Mercury.framework"
+  install_framework "Pods-PushForParse/TransitionTreasury.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PushForParse/Alamofire.framework"
   install_framework "Pods-PushForParse/DGElasticPullToRefresh.framework"
   install_framework "Pods-PushForParse/Mercury.framework"
+  install_framework "Pods-PushForParse/TransitionTreasury.framework"
 fi

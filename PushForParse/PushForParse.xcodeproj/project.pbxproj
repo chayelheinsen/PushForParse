@@ -43,6 +43,8 @@
 		6ACFEDE91BD449DB0068ACB9 /* App+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFEDE71BD449DB0068ACB9 /* App+CoreDataProperties.swift */; };
 		6ACFEDEC1BD44ECB0068ACB9 /* AppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFEDEB1BD44ECB0068ACB9 /* AppCell.swift */; };
 		6ACFEDEE1BD471CF0068ACB9 /* SendNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFEDED1BD471CF0068ACB9 /* SendNotificationController.swift */; };
+		6AF02E951C3875F900B72354 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF02E941C3875F900B72354 /* LoginViewController.swift */; };
+		6AF02E971C3877A600B72354 /* RemoveNavigationBarHairline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF02E961C3877A600B72354 /* RemoveNavigationBarHairline.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,8 @@
 		6ACFEDE71BD449DB0068ACB9 /* App+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "App+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6ACFEDEB1BD44ECB0068ACB9 /* AppCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCell.swift; sourceTree = "<group>"; };
 		6ACFEDED1BD471CF0068ACB9 /* SendNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendNotificationController.swift; sourceTree = "<group>"; };
+		6AF02E941C3875F900B72354 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
+		6AF02E961C3877A600B72354 /* RemoveNavigationBarHairline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoveNavigationBarHairline.swift; path = Utilities/RemoveNavigationBarHairline.swift; sourceTree = "<group>"; };
 		881FFB454E69BF828391C6CE /* Pods_PushForParseWatchApp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushForParseWatchApp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9557C4EA67A412E59CBB7B56 /* Pods-PushForParse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushForParse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushForParse/Pods-PushForParse.debug.xcconfig"; sourceTree = "<group>"; };
 		A449600E70B3227A75B7E4ED /* Pods_PushForParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushForParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +167,7 @@
 				6A1A7E861BD2006400EC9FBC /* SendNotificationTableViewController.swift */,
 				6A1A7E8A1BD2E1E600EC9FBC /* AddAppTableViewController.swift */,
 				6A1D9F101BE6A8FD008E79D6 /* ParseLoginTableViewController.swift */,
+				6AF02E941C3875F900B72354 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				6A1A7E881BD299EF00EC9FBC /* UIColorExtensions.swift */,
 				6A1D9F081BE697C2008E79D6 /* Parse.swift */,
 				6A1D9F131BE6BBA8008E79D6 /* UIImage+Utilities.swift */,
+				6AF02E961C3877A600B72354 /* RemoveNavigationBarHairline.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				6A1A7E871BD2006400EC9FBC /* SendNotificationTableViewController.swift in Sources */,
 				6A1A7E801BD1F60E00EC9FBC /* Ionicon.swift in Sources */,
 				6A3747731BD1F0F1000734D1 /* CoreDataController.swift in Sources */,
+				6AF02E971C3877A600B72354 /* RemoveNavigationBarHairline.swift in Sources */,
 				6A1A7E811BD1F60E00EC9FBC /* Ionicons.swift in Sources */,
 				6A37475E1BD1EEFB000734D1 /* AppDelegate.swift in Sources */,
 				6A1A7E7C1BD1F40400EC9FBC /* App.swift in Sources */,
@@ -559,6 +566,7 @@
 				6A1D9F141BE6BBA8008E79D6 /* UIImage+Utilities.swift in Sources */,
 				6A1D9F111BE6A8FD008E79D6 /* ParseLoginTableViewController.swift in Sources */,
 				6A1D9F0D1BE6A21D008E79D6 /* ParseAccount+CoreDataProperties.swift in Sources */,
+				6AF02E951C3875F900B72354 /* LoginViewController.swift in Sources */,
 				6A1A7E7B1BD1F40400EC9FBC /* App+CoreDataProperties.swift in Sources */,
 				6A1A7E891BD299EF00EC9FBC /* UIColorExtensions.swift in Sources */,
 				6A1A7E8B1BD2E1E600EC9FBC /* AddAppTableViewController.swift in Sources */,
@@ -640,7 +648,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -662,6 +671,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "cb97c366-cd12-4f2c-b448-db5b84b7fa42";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -684,7 +694,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -699,6 +710,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "6ca1d092-6f86-4aa6-8ce0-3dd6d41874bf";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -709,11 +721,13 @@
 			baseConfigurationReference = 9557C4EA67A412E59CBB7B56 /* Pods-PushForParse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
 				INFOPLIST_FILE = PushForParse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.PushForParse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.Shove;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cb97c366-cd12-4f2c-b448-db5b84b7fa42";
 			};
 			name = Debug;
 		};
@@ -722,11 +736,13 @@
 			baseConfigurationReference = 45F0997BDB6342E1C15A3765 /* Pods-PushForParse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
 				INFOPLIST_FILE = PushForParse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.PushForParse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.Shove;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6ca1d092-6f86-4aa6-8ce0-3dd6d41874bf";
 			};
 			name = Release;
 		};
@@ -734,12 +750,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = PushForParseWatchApp_Extension;
 				INFOPLIST_FILE = PushForParseWatchApp/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.PushForParse.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.Shove.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cb97c366-cd12-4f2c-b448-db5b84b7fa42";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -751,12 +769,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = PushForParseWatchApp_Extension;
 				INFOPLIST_FILE = PushForParseWatchApp/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.PushForParse.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.Shove.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6ca1d092-6f86-4aa6-8ce0-3dd6d41874bf";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -768,11 +788,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 154F714559E37341B3F0CC0C /* Pods-PushForParseWatchApp Extension.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
 				INFOPLIST_FILE = "PushForParseWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.PushForParse.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.Shove.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "cb97c366-cd12-4f2c-b448-db5b84b7fa42";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -784,11 +806,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 16042A903A235656184FEBF8 /* Pods-PushForParseWatchApp Extension.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
 				INFOPLIST_FILE = "PushForParseWatchApp Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.PushForParse.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chayelheinsen.Shove.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "6ca1d092-6f86-4aa6-8ce0-3dd6d41874bf";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
