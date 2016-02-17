@@ -28,7 +28,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.chayelheinsen.PushForParse</string>
+	<string>com.chayelheinsen.Shove</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27D20212BDE32C37D8BF45C9 /* Pods_PushForParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A449600E70B3227A75B7E4ED /* Pods_PushForParse.framework */; };
-		2984AD2993C3156DA8F12FC8 /* Pods_PushForParseWatchApp_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 881FFB454E69BF828391C6CE /* Pods_PushForParseWatchApp_Extension.framework */; };
+		081A960C6A90A057C261FD85 /* Pods_PushForParseWatchApp_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89BFA58448EB202995A7F80 /* Pods_PushForParseWatchApp_Extension.framework */; };
 		6A1A7E771BD1F2C300EC9FBC /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1A7E761BD1F2C300EC9FBC /* AppsTableViewController.swift */; };
 		6A1A7E7B1BD1F40400EC9FBC /* App+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1A7E791BD1F40400EC9FBC /* App+CoreDataProperties.swift */; };
 		6A1A7E7C1BD1F40400EC9FBC /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1A7E7A1BD1F40400EC9FBC /* App.swift */; };
@@ -45,6 +44,7 @@
 		6ACFEDEE1BD471CF0068ACB9 /* SendNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACFEDED1BD471CF0068ACB9 /* SendNotificationController.swift */; };
 		6AF02E951C3875F900B72354 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF02E941C3875F900B72354 /* LoginViewController.swift */; };
 		6AF02E971C3877A600B72354 /* RemoveNavigationBarHairline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF02E961C3877A600B72354 /* RemoveNavigationBarHairline.swift */; };
+		E754C942AC27ADF50632C737 /* Pods_PushForParse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4891A0EDCB8EA61D58EAA88B /* Pods_PushForParse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,9 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		154F714559E37341B3F0CC0C /* Pods-PushForParseWatchApp Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushForParseWatchApp Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushForParseWatchApp Extension/Pods-PushForParseWatchApp Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		16042A903A235656184FEBF8 /* Pods-PushForParseWatchApp Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushForParseWatchApp Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushForParseWatchApp Extension/Pods-PushForParseWatchApp Extension.release.xcconfig"; sourceTree = "<group>"; };
-		45F0997BDB6342E1C15A3765 /* Pods-PushForParse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushForParse.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushForParse/Pods-PushForParse.release.xcconfig"; sourceTree = "<group>"; };
+		4891A0EDCB8EA61D58EAA88B /* Pods_PushForParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushForParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1A7E761BD1F2C300EC9FBC /* AppsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppsTableViewController.swift; path = ViewControllers/AppsTableViewController.swift; sourceTree = "<group>"; };
 		6A1A7E791BD1F40400EC9FBC /* App+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "App+CoreDataProperties.swift"; path = "Utilities/App+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6A1A7E7A1BD1F40400EC9FBC /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = App.swift; path = Utilities/App.swift; sourceTree = "<group>"; };
@@ -135,17 +133,26 @@
 		6ACFEDED1BD471CF0068ACB9 /* SendNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendNotificationController.swift; sourceTree = "<group>"; };
 		6AF02E941C3875F900B72354 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		6AF02E961C3877A600B72354 /* RemoveNavigationBarHairline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RemoveNavigationBarHairline.swift; path = Utilities/RemoveNavigationBarHairline.swift; sourceTree = "<group>"; };
-		881FFB454E69BF828391C6CE /* Pods_PushForParseWatchApp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushForParseWatchApp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9557C4EA67A412E59CBB7B56 /* Pods-PushForParse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushForParse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushForParse/Pods-PushForParse.debug.xcconfig"; sourceTree = "<group>"; };
-		A449600E70B3227A75B7E4ED /* Pods_PushForParse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushForParse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		985576E2408858D1965DB9A9 /* Pods-PushForParseWatchApp Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushForParseWatchApp Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushForParseWatchApp Extension/Pods-PushForParseWatchApp Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		B8C8D96E194120EBFB924ADF /* Pods-PushForParse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushForParse.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushForParse/Pods-PushForParse.release.xcconfig"; sourceTree = "<group>"; };
+		CB1D23CFB950AB9C42B190E2 /* Pods-PushForParseWatchApp Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushForParseWatchApp Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-PushForParseWatchApp Extension/Pods-PushForParseWatchApp Extension.release.xcconfig"; sourceTree = "<group>"; };
+		D2F5FB469DA7BFA0FBF28458 /* Pods-PushForParse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PushForParse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PushForParse/Pods-PushForParse.debug.xcconfig"; sourceTree = "<group>"; };
+		E89BFA58448EB202995A7F80 /* Pods_PushForParseWatchApp_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PushForParseWatchApp_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1CC3D735A952F0832CB63DE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6A3747571BD1EEFB000734D1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27D20212BDE32C37D8BF45C9 /* Pods_PushForParse.framework in Frameworks */,
+				E754C942AC27ADF50632C737 /* Pods_PushForParse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,13 +160,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2984AD2993C3156DA8F12FC8 /* Pods_PushForParseWatchApp_Extension.framework in Frameworks */,
+				081A960C6A90A057C261FD85 /* Pods_PushForParseWatchApp_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F87D62841F27C97FB431C91 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4891A0EDCB8EA61D58EAA88B /* Pods_PushForParse.framework */,
+				E89BFA58448EB202995A7F80 /* Pods_PushForParseWatchApp_Extension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F9A474469968402FA21DCCD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D2F5FB469DA7BFA0FBF28458 /* Pods-PushForParse.debug.xcconfig */,
+				B8C8D96E194120EBFB924ADF /* Pods-PushForParse.release.xcconfig */,
+				985576E2408858D1965DB9A9 /* Pods-PushForParseWatchApp Extension.debug.xcconfig */,
+				CB1D23CFB950AB9C42B190E2 /* Pods-PushForParseWatchApp Extension.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6A1A7E781BD1F2C800EC9FBC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,8 +240,8 @@
 				6A37475C1BD1EEFB000734D1 /* PushForParse */,
 				6ACFEDBF1BD42D980068ACB9 /* PushForParseWatchApp */,
 				6ACFEDCE1BD42D980068ACB9 /* PushForParseWatchApp Extension */,
-				75400ABA40E7DD42FF6AD34F /* Pods */,
-				CBD226B96242CF2022B56AD6 /* Frameworks */,
+				4F9A474469968402FA21DCCD /* Pods */,
+				2F87D62841F27C97FB431C91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,26 +324,6 @@
 			name = App;
 			sourceTree = "<group>";
 		};
-		75400ABA40E7DD42FF6AD34F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9557C4EA67A412E59CBB7B56 /* Pods-PushForParse.debug.xcconfig */,
-				45F0997BDB6342E1C15A3765 /* Pods-PushForParse.release.xcconfig */,
-				154F714559E37341B3F0CC0C /* Pods-PushForParseWatchApp Extension.debug.xcconfig */,
-				16042A903A235656184FEBF8 /* Pods-PushForParseWatchApp Extension.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		CBD226B96242CF2022B56AD6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A449600E70B3227A75B7E4ED /* Pods_PushForParse.framework */,
-				881FFB454E69BF828391C6CE /* Pods_PushForParseWatchApp_Extension.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -324,13 +331,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A37476F1BD1EEFB000734D1 /* Build configuration list for PBXNativeTarget "PushForParse" */;
 			buildPhases = (
-				646EA127058AD3D9AC527D1A /* Check Pods Manifest.lock */,
+				0B2703611088DAE908E89DCF /* Check Pods Manifest.lock */,
 				6A3747561BD1EEFB000734D1 /* Sources */,
 				6A3747571BD1EEFB000734D1 /* Frameworks */,
 				6A3747581BD1EEFB000734D1 /* Resources */,
-				4B277C307D39D1E08F3BF48F /* Embed Pods Frameworks */,
-				F9E4E34B9A489667B5B0597E /* Copy Pods Resources */,
 				6ACFEDE01BD42D990068ACB9 /* Embed Watch Content */,
+				DAD105962B689A86CA30CF93 /* Embed Pods Frameworks */,
+				3730432ADD55F2B4E4E36386 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -348,6 +355,7 @@
 			buildPhases = (
 				6ACFEDBC1BD42D980068ACB9 /* Resources */,
 				6ACFEDDE1BD42D990068ACB9 /* Embed App Extensions */,
+				1CC3D735A952F0832CB63DE6 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,12 +371,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6ACFEDDD1BD42D990068ACB9 /* Build configuration list for PBXNativeTarget "PushForParseWatchApp Extension" */;
 			buildPhases = (
-				807CE79199FA4DC67E4B5777 /* Check Pods Manifest.lock */,
+				B2B24DB155D756B3E55EF286 /* Check Pods Manifest.lock */,
 				6ACFEDC61BD42D980068ACB9 /* Sources */,
 				6ACFEDC71BD42D980068ACB9 /* Frameworks */,
 				6ACFEDC81BD42D980068ACB9 /* Resources */,
-				2B5AE23A23F94C40CF73D9C3 /* Embed Pods Frameworks */,
-				4C43A77DAE319A21E3440474 /* Copy Pods Resources */,
+				F1812C3AACD280D6053B8B4B /* Embed Pods Frameworks */,
+				20EB5C235B4DF0EC4ABACC37 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -455,37 +463,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2B5AE23A23F94C40CF73D9C3 /* Embed Pods Frameworks */ = {
+		0B2703611088DAE908E89DCF /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushForParseWatchApp Extension/Pods-PushForParseWatchApp Extension-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		4B277C307D39D1E08F3BF48F /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushForParse/Pods-PushForParse-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4C43A77DAE319A21E3440474 /* Copy Pods Resources */ = {
+		20EB5C235B4DF0EC4ABACC37 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -500,37 +493,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushForParseWatchApp Extension/Pods-PushForParseWatchApp Extension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		646EA127058AD3D9AC527D1A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		807CE79199FA4DC67E4B5777 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		F9E4E34B9A489667B5B0597E /* Copy Pods Resources */ = {
+		3730432ADD55F2B4E4E36386 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -543,6 +506,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushForParse/Pods-PushForParse-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2B24DB155D756B3E55EF286 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DAD105962B689A86CA30CF93 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushForParse/Pods-PushForParse-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1812C3AACD280D6053B8B4B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PushForParseWatchApp Extension/Pods-PushForParseWatchApp Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -718,7 +726,7 @@
 		};
 		6A3747701BD1EEFB000734D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9557C4EA67A412E59CBB7B56 /* Pods-PushForParse.debug.xcconfig */;
+			baseConfigurationReference = D2F5FB469DA7BFA0FBF28458 /* Pods-PushForParse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
@@ -733,7 +741,7 @@
 		};
 		6A3747711BD1EEFB000734D1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45F0997BDB6342E1C15A3765 /* Pods-PushForParse.release.xcconfig */;
+			baseConfigurationReference = B8C8D96E194120EBFB924ADF /* Pods-PushForParse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
@@ -786,7 +794,7 @@
 		};
 		6ACFEDDB1BD42D980068ACB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 154F714559E37341B3F0CC0C /* Pods-PushForParseWatchApp Extension.debug.xcconfig */;
+			baseConfigurationReference = 985576E2408858D1965DB9A9 /* Pods-PushForParseWatchApp Extension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Chayel Heinsen (6PU2CP9AW4)";
@@ -804,7 +812,7 @@
 		};
 		6ACFEDDC1BD42D980068ACB9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 16042A903A235656184FEBF8 /* Pods-PushForParseWatchApp Extension.release.xcconfig */;
+			baseConfigurationReference = CB1D23CFB950AB9C42B190E2 /* Pods-PushForParseWatchApp Extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Distribution: Chayel Heinsen (8A3233VT57)";

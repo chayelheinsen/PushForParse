@@ -21,11 +21,11 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let add: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addApplicationSegue")
-        
+        //let add: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addApplicationSegue")
+    
         let edit: UIBarButtonItem = UIBarButtonItem(image: Ionicons.imageWithIcon(Ionicon.Ios7CogOutline, size: 26, color: UIColor.whiteColor()), style: .Plain, target: self, action: "goToSettings")
         
-        navigationItem.rightBarButtonItem = add
+        //navigationItem.rightBarButtonItem = add
         navigationItem.leftBarButtonItem = edit
         
         navigationItem.title = "Apps"
@@ -125,13 +125,14 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
     // MARK: UITableViewDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         if apps.count > 0 {
             let sendNotification = SendNotificationTableViewController(style: .Grouped)
             sendNotification.app = apps[tableView.indexPathForSelectedRow!.row]
             self.navigationController?.pushViewController(sendNotification, animated: true)
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     // MARK: - UIViewControllerPreviewingDelegate
@@ -160,10 +161,6 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
     
     // MARK: - Helpers
     
-    func addApplicationSegue() {
-        performSegueWithIdentifier("AddAppSegue", sender: self)
-    }
-    
     func goToSettings() {
         UIApplication.sharedApplication().openURL(NSURL(string: UIApplicationOpenSettingsURLString)!)
     }
@@ -179,6 +176,8 @@ class AppsTableViewController: UITableViewController, UIViewControllerPreviewing
             Parse.apps(account) { (apps) -> () in
                 
                 if let apps = apps {
+                    
+                    self.refreshData()
                     
                     if WCSession.defaultSession().watchAppInstalled {
                         var array = [[String : AnyObject]]()

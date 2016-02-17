@@ -40,7 +40,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AppCell" textLabel="HCC-Fi-mgr" rowHeight="60" style="IBUITableViewCellStyleDefault" id="bwd-t2-j9O">
-                                <rect key="frame" x="0.0" y="114" width="600" height="60"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bwd-t2-j9O" id="IEA-59-V4k">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="59"/>
@@ -67,7 +67,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Apps" id="w4a-qw-ZVs">
                         <barButtonItem key="leftBarButtonItem" title="Edit" id="lMB-Wn-SSL"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6R1-sa-Z9i"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMo-S8-Rb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -245,7 +244,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8T1-aM-FRH">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8T1-aM-FRH">
                                 <rect key="frame" x="20" y="161" width="560" height="30"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -268,7 +267,7 @@
                                     <outlet property="delegate" destination="wb7-FY-BXy" id="abj-HX-l7Z"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shove" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYY-y8-hnW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Shove" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYY-y8-hnW">
                                 <rect key="frame" x="247" y="28" width="106" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="IVn-GH-v5C"/>
@@ -290,7 +289,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1E-CG-O6x">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1E-CG-O6x">
                                 <rect key="frame" x="202" y="257" width="196" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="196" id="JXK-s5-fVV"/>
@@ -316,7 +315,7 @@
                                     <action selector="login:" destination="wb7-FY-BXy" eventType="touchUpInside" id="lPe-eN-rGv"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YgJ-o5-PKR">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YgJ-o5-PKR">
                                 <rect key="frame" x="20" y="207" width="560" height="30"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -339,7 +338,7 @@
                                     <outlet property="delegate" destination="wb7-FY-BXy" id="zSn-Iy-69O"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Push Notifications for Parse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pM-Xw-C04">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Push Notifications for Parse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pM-Xw-C04">
                                 <rect key="frame" x="225" y="92" width="150" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="78Z-LQ-ssB"/>
@@ -362,7 +361,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsS-oi-ikZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsS-oi-ikZ">
                                 <rect key="frame" x="200" y="521" width="200" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Fey-PG-AvY"/>
@@ -384,7 +383,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYe-Fm-x8P">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYe-Fm-x8P">
                                 <rect key="frame" x="266" y="550" width="68" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="CdL-m9-7wf"/>
@@ -435,19 +434,19 @@
                                 <exclude reference="ZHw-GV-fvY"/>
                                 <exclude reference="jBs-Y2-9aP"/>
                                 <exclude reference="kxi-Tb-VaO"/>
-                                <exclude reference="JzR-Wa-jqs"/>
-                                <exclude reference="SYr-Dh-fMY"/>
                                 <exclude reference="fzc-oi-hAK"/>
                                 <exclude reference="oDP-kW-DSX"/>
                                 <exclude reference="r4B-PC-Uzv"/>
+                                <exclude reference="JzR-Wa-jqs"/>
+                                <exclude reference="SYr-Dh-fMY"/>
                                 <exclude reference="UWo-rc-wuA"/>
                                 <exclude reference="nGY-FY-sgr"/>
                                 <exclude reference="Com-1I-boZ"/>
                                 <exclude reference="a3a-j1-jIV"/>
                                 <exclude reference="hSy-Zw-Vvp"/>
+                                <exclude reference="SfZ-BB-jbW"/>
                                 <exclude reference="Rf6-fj-nWH"/>
                                 <exclude reference="klu-SB-a4V"/>
-                                <exclude reference="SfZ-BB-jbW"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -455,19 +454,19 @@
                                 <include reference="ZHw-GV-fvY"/>
                                 <include reference="jBs-Y2-9aP"/>
                                 <include reference="kxi-Tb-VaO"/>
-                                <include reference="JzR-Wa-jqs"/>
-                                <include reference="SYr-Dh-fMY"/>
                                 <include reference="fzc-oi-hAK"/>
                                 <include reference="oDP-kW-DSX"/>
                                 <include reference="r4B-PC-Uzv"/>
+                                <include reference="JzR-Wa-jqs"/>
+                                <include reference="SYr-Dh-fMY"/>
                                 <include reference="UWo-rc-wuA"/>
                                 <include reference="nGY-FY-sgr"/>
                                 <include reference="Com-1I-boZ"/>
                                 <include reference="a3a-j1-jIV"/>
                                 <include reference="hSy-Zw-Vvp"/>
+                                <include reference="SfZ-BB-jbW"/>
                                 <include reference="Rf6-fj-nWH"/>
                                 <include reference="klu-SB-a4V"/>
-                                <include reference="SfZ-BB-jbW"/>
                             </mask>
                         </variation>
                     </view>
